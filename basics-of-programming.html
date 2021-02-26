@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Programming</title>
+	<style type="text/css">
+		input {
+			width: 200px;
+			margin-bottom: 5px;
+		}
+		label,input {
+			font-size: 20px;
+			font-weight: bold;
+		}
+		button {
+			padding: 5px 8px;
+			color: white;
+			margin-top: 5px;
+			background-color: green;
+		}
+		#msgUsernameError {
+			color: red;
+		}
+		#msgUsernameSuccess {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<form onsubmit="return false" onblur="">
+		<label>Username</label>
+		<input type="text" id="username" name="username"> <br>
+		<label id="msgUsernameError"></label>
+		<label id="msgUsernameSuccess"></label>
+		<br>
+		<label>Password</label>&nbsp
+		<input type="password" id="password" name="password"> <br>
+		<label id="msgPassword"></label>
+		<br>
+		<button id="btn">Login</button>
+
+	</form>
+</body>
+<script type="text/javascript">
+	document.getElementById('btn').addEventListener('click',function(){
+		var username = document.getElementById('username').value;
+		var password = document.getElementById('password').value;
+
+		if (username.length == 0) {
+			//error
+			var usernameObj = document.getElementById('msgUsernameError');
+			document.getElementById('msgUsernameSuccess').style.display = 'none';
+			document.getElementById('msgUsernameError').style.display = 'block';
+			usernameObj.innerHTML = 'Please enter username';
+		}
+		else {
+			var usernameObj = document.getElementById('msgUsernameSuccess');
+			document.getElementById('msgUsernameSuccess').style.display = 'block';
+			document.getElementById('msgUsernameError').style.display = 'none';
+			usernameObj.innerHTML = 'success';
+		}
+
+		if (password.length <= 8 && password.length >= 5) {
+			document.getElementById('msgPassword').innerHTML = 'valid pass';
+
+		}
+		else {
+			document.getElementById('msgPassword').innerHTML = 'Pass length must be between 5-8';
+		}
+
+	});
+
+</script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+		div
+
+		{
+
+			text-align:center; 
+			width: 450px;
+			height: 450PX;
+			color:green; 
+			border: solid black 5px; 
+
+		}
+		#v1,#v2,#ans
+		{
+			height: 20px;
+			width: 380px;
+			padding: 10px 0px 18px 10px;
+			font-size: 20px;
+		}
+		button
+		{
+			height: 60px;
+			width: 100px;
+			background-color: #447533;
+			color:white;
+			border-radius: 15px;
+
+
+		}
+	</style>
+	<title>Calculator</title>
+</head>
+<body>
+	<div>
+		<table>
+			<tr><br>
+				
+				<input type="text" id="v1" placeholder="value1"><br>
+				<input type="text" id="v2" placeholder="value2"><br><br>
+				<input type="text" id="ans" readonly=""><br>
+			</tr>
+			<br>
+			
+			<button>7</button>
+			<button>8</button>
+			<button>9</button>
+			<button id="plus">+</button><br>
+			<button>4</button>
+			<button>5</button>
+			<button>6</button>
+			<button id="minus">-</button><br>
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button id="mult">*</button><br>
+
+			<!-- equal sentence -->
+			<button type="button" >C</button>
+			<button>0</button>
+			<button id="equal">=</button>
+			<button id="div">/</button>
+
+			<!-- <button id="getResult">=</button> -->
+
+		</td>
+	</tr>
+</table>
+</div>
+<script type="text/javascript">
+	function calc(num1, num2, op) {
+		var ans = 0;
+		if (op == 'add') {
+			ans= parseInt(num1)+parseInt(num2);
+		}	
+		else if(op == 'minus') {
+			ans=num1-num2;
+		}
+		else if(op == 'mul') {
+			ans=num1*num2;
+		}
+		else if(op == 'div') {
+			ans=num1/num2;
+		}
+
+		else {
+			console.log('Invalid operation')
+		}
+		document.getElementById('ans').value = ans;
+
+	}
+
+	document.getElementById('plus').addEventListener('click', function(){
+		calc(document.getElementById('v1').value,document.getElementById('v2').value,'add');
+	});
+	document.getElementById('minus').addEventListener('click', function(){
+		calc(document.getElementById('v1').value,document.getElementById('v2').value,'minus');
+	});
+	document.getElementById('mult').addEventListener('click', function(){
+		calc(document.getElementById('v1').value,document.getElementById('v2').value,'mul');
+	});
+	document.getElementById('div').addEventListener('click', function(){
+		calc(document.getElementById('v1').value,document.getElementById('v2').value,'div');
+	});
+</script>
+
+
+</body>
+</html>
